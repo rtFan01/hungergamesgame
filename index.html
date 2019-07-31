@@ -1,0 +1,56 @@
+<html>
+	<head>
+		<title>Hunger Games</title>
+		<link rel="stylesheet" type="text/css" href="hungerGamesCSS.css">
+	</head>
+	<body>
+		<h1 id="introText">Welcome to the Hunger Games Simulator!</h1>
+		<h3 id="dayText">Please create 2-8 characters that will participate in this year's hunger games!</h3>
+		<input id="characterName" type="text" name="characterName">
+		<input id="+" type="submit" value="+">
+		<br id="br1">
+		<br id="br2">
+		<div id="characters"></div>
+		<br>
+		<input id="start" type="submit" value="Start">
+		
+		<script>
+		var introText = document.getElementById("introText");
+		var dayText = document.getElementById("dayText");
+		var characterName = document.getElementById("characterName");
+		var submitButton = document.getElementById("+");
+		var br1 = document.getElementById("br1");
+		var br2 = document.getElementById("br2");
+		var charactersDiv = document.getElementById("characters");
+		var startButton = document.getElementById("start");
+		
+		var characters = 0;
+		var cs = [];
+		var start = false;
+		var dayNumber = 1;
+		
+		submitButton.addEventListener("click", function() {
+			if (characterName.value != "" && characters < 8) {
+				charactersDiv.innerHTML += characterName.value + "<br>";
+				characters++;
+				cs.push(characterName.value)
+				console.log(cs);
+			}
+		});
+		
+		startButton.addEventListener("click", function() {
+			if (characters >= 2) {
+				console.log("it works!")
+				start = true;
+				introText.innerHTML = "Let the games begin!";
+				dayText.innerHTML = "Day " + dayNumber;
+				characterName.remove();
+				submitButton.remove();
+				br1.remove();
+				br2.remove();
+			}
+		});
+		
+		</script>
+	</body>
+</html>
