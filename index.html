@@ -28,6 +28,7 @@
 		var cs = [];
 		var start = false;
 		var dayNumber = 1;
+		var possibleActions = [];
 		
 		submitButton.addEventListener("click", function() {
 			if (characterName.value != "" && characters < 8) {
@@ -44,6 +45,7 @@
 				start = true;
 				introText.innerHTML = "Let the games begin!";
 				dayText.innerHTML = "Day " + dayNumber;
+				charactersDiv.innerHTML = "";
 				characterName.remove();
 				submitButton.remove();
 				br1.remove();
